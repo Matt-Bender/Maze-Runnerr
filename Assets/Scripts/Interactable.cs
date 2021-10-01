@@ -16,15 +16,10 @@ public class Interactable : MonoBehaviour
         meshRender = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    //Sets color to white when interacting with
+    public void SetInteractable(bool setColor)
     {
-        
-    }
-
-    public void SetInteractable(bool setInt)
-    {
-        isInteractable = setInt;
+        isInteractable = setColor;
         if (isInteractable)
         {
             meshRender.material = highlightMat;
