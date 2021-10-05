@@ -21,7 +21,7 @@ public class Interact : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Destroy(currObject);
+                currObject.GetComponent<Interactable>().Interact();
                 isInteracting = false;
             }
         }
