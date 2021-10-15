@@ -7,7 +7,6 @@ public class BasicMovement : MonoBehaviour
     Rigidbody rb;
     [SerializeField] private float speed;
     [SerializeField] private float rotSpeed;
-    [SerializeField] private Camera cam;
 
     private float goUp;
     private float goRight;
@@ -18,20 +17,9 @@ public class BasicMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-    }
     private void FixedUpdate()
     {
         BasicMove();
-
-        
-        //Vector3 lookDir = mousePos - rb.position;
-        //float angle = Mathf.Atan2(lookDir.z, lookDir.x) * Mathf.Rad2Deg - 90;
-        //rb.rotation = angle;
     }
 
     private void BasicMove()
