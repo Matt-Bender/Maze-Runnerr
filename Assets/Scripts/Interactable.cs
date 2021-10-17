@@ -13,6 +13,9 @@ public class Interactable : MonoBehaviour
     private MeshRenderer meshRender;
 
     private bool isInteractable = false;
+    //When set true such as for chests or doors
+    //Will no longer be able to be interactable after being opened
+    private bool hasInteracted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class Interactable : MonoBehaviour
     public void SetInteractable(bool setColor)
     {
         isInteractable = setColor;
-        if (isInteractable)
+        if (isInteractable && !hasInteracted)
         {
             meshRender.material = highlightMat;
         }
@@ -35,20 +38,28 @@ public class Interactable : MonoBehaviour
     //This is called whenever player is looking at object and left clicks ie...(Door opens with key, chest opens)
     public void Interact()
     {
-        if(currentObject == intObject.Door)
+        if (!hasInteracted)
         {
-            if (GetComponent<Door>().CheckForKey())
+            if (currentObject == intObject.Door)
             {
-                Destroy(gameObject);
+                if (GetComponent<Door>().CheckForKey())
+                {
+                    Destroy(gameObject);
+                    //Door is no longer interactable
+                    hasInteracted = true;
+                }
+                else
+                {
+                    Debug.Log("Missing Key");
+                }
             }
-            else
+            else if (currentObject == intObject.Chest)
             {
-                Debug.Log("Missing Key");
+                GetComponent<Chest>().OpenChest();
+                //Chest is no longer interactable
+                hasInteracted = true;
             }
         }
-        else if(currentObject == intObject.Chest)
-        {
-            Destroy(gameObject);
-        }
+
     }
 }
