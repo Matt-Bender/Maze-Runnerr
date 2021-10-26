@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     private bool hasRedKey = false;
-    private bool hasBlueKey = false;
+    private bool hasBlueKey = true;
     private bool hasGreenKey = false;
     // Start is called before the first frame update
     void Start()

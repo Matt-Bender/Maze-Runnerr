@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
@@ -17,14 +18,14 @@ public class Interact : MonoBehaviour
     void Update()
     {
         //Left click to destroy... Later will change to activate object
-        if (isInteracting)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                currObject.GetComponent<Interactable>().Interact();
-                isInteracting = false;
-            }
-        }
+        //if (isInteracting)
+        //{
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        currObject.GetComponent<Interactable>().Interact();
+        //        isInteracting = false;
+        //    }
+        //}
     }
     private void OnTriggerStay(Collider other)
     {
@@ -42,5 +43,21 @@ public class Interact : MonoBehaviour
             isInteracting = false;
             other.GetComponent<Interactable>().SetInteractable(false);
         }
+    }
+
+    public void InteractObject(InputAction.CallbackContext context)
+    {
+        //Debug.Log("Interact" + context.phase);
+        if (context.performed)
+        {
+            Debug.Log("Interact");
+            if (isInteracting)
+            {
+                currObject.GetComponent<Interactable>().Interact();
+                isInteracting = false;
+            }
+        }
+        //Left click to destroy... Later will change to activate object
+
     }
 }

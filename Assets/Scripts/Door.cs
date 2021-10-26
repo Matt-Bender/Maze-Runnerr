@@ -9,10 +9,13 @@ public class Door : MonoBehaviour
 
     private ItemManager playerItemManager;
 
+    Animator doorAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         playerItemManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
+        doorAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class Door : MonoBehaviour
         {
             if (playerItemManager.CheckBlueKey())
             {
+                doorAnim.SetTrigger("openDoor");
                 return true;
             }
         }

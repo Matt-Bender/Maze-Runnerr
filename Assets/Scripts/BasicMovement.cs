@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -8,8 +9,14 @@ public class BasicMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float rotSpeed;
 
+    private Vector2 inputMovement;
+    private Vector2 outputMovement;
+
     private float goUp;
     private float goRight;
+
+    private float upInput;
+    private float rightInput;
 
     Vector3 mousePos;
     // Start is called before the first frame update
@@ -24,9 +31,11 @@ public class BasicMovement : MonoBehaviour
 
     private void BasicMove()
     {
-        //Using getaxis for smoothing movement
-        goUp = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        goRight = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        rb.velocity = new Vector3(goRight, 0, goUp);
+        outputMovement = new Vector2(inputMovement.x * speed * Time.deltaTime, inputMovement.y * speed * Time.deltaTime);
+        rb.velocity = new Vector3(outputMovement.x, 0, outputMovement.y);
+    }
+    public void Movement(InputAction.CallbackContext context)
+    {
+        inputMovement = context.ReadValue<Vector2>();
     }
 }
