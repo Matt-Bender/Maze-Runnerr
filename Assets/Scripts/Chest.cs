@@ -10,13 +10,6 @@ public class Chest : MonoBehaviour
     {
         chestAnim = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OpenChest()
     {
         chestAnim.SetTrigger("openChest");

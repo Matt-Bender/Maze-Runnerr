@@ -36,9 +36,6 @@ public class BasicMovement : MonoBehaviour
     }
     public void Movement(InputAction.CallbackContext context)
     {
-        //Debug.Log(context.control);
         inputMovement = context.ReadValue<Vector2>();
-        //transform.forward = rb.velocity.normalized;
-        //transform.forward = context.ReadValue<Vector2>();
     }
 }

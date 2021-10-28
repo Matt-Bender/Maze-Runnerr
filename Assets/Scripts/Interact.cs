@@ -8,25 +8,7 @@ public class Interact : MonoBehaviour
     //boolean to ensure only one interactable object at a time
     private bool isInteracting = false;
     private GameObject currObject;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Left click to destroy... Later will change to activate object
-        //if (isInteracting)
-        //{
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        currObject.GetComponent<Interactable>().Interact();
-        //        isInteracting = false;
-        //    }
-        //}
-    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Interactable") && isInteracting == false)
@@ -55,7 +37,5 @@ public class Interact : MonoBehaviour
                 isInteracting = false;
             }
         }
-        //Left click to destroy... Later will change to activate object
-
     }
 }

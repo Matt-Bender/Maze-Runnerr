@@ -7,7 +7,7 @@ public class RotateTowardsMouse : MonoBehaviour
 {
     [SerializeField] private float smoothness;
 
-    Vector2 rot;
+    Vector2 playerRot;
     public PlayerInput playerinput = new PlayerInput();
 
     //Keeps track if current control scheme is keyboard or gamepad
@@ -24,7 +24,6 @@ public class RotateTowardsMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //RotateMouse();
         if(playerinput.currentControlScheme == "Keyboard")
         {
             controlKeyboard = true;
@@ -57,9 +56,8 @@ public class RotateTowardsMouse : MonoBehaviour
     {
         if (context.performed && !controlKeyboard)
         {
-            transform.forward = new Vector3(rot.x, 0, rot.y);
+            transform.forward = new Vector3(playerRot.x, 0, playerRot.y);
         }
-        //Debug.Log(context.ReadValue<Vector2>());
-        rot = context.ReadValue<Vector2>();
+        playerRot = context.ReadValue<Vector2>();
     }
 }

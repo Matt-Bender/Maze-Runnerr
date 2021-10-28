@@ -17,13 +17,6 @@ public class Door : MonoBehaviour
         playerItemManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
         doorAnim = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool CheckForKey()
     {
         if(currentColor == color.Blue)

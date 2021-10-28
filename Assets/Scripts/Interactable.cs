@@ -44,7 +44,6 @@ public class Interactable : MonoBehaviour
             {
                 if (GetComponent<Door>().CheckForKey())
                 {
-                    //Destroy(gameObject);
                     //Door is no longer interactable
                     hasInteracted = true;
                 }
