@@ -25,7 +25,7 @@
                     "name": "Rotate",
                     "type": "Value",
                     "id": "0e7d125c-ce96-4d29-a761-14b38b99a1a1",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -121,11 +121,22 @@
                 },
                 {
                     "name": "",
-                    "id": "5dfc0d2d-bb9b-4e99-88ae-b0eb7733dc98",
-                    "path": "",
+                    "id": "4695f8c3-0ebb-4532-9f48-950011f2631e",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "712a31ee-9243-41cb-b8d6-0d7d34d83d74",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -140,6 +151,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }

@@ -47,10 +47,8 @@ public class Interact : MonoBehaviour
 
     public void InteractObject(InputAction.CallbackContext context)
     {
-        //Debug.Log("Interact" + context.phase);
         if (context.performed)
         {
-            Debug.Log("Interact");
             if (isInteracting)
             {
                 currObject.GetComponent<Interactable>().Interact();
